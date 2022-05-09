@@ -25,6 +25,12 @@ export default {
             </router-link>
         </li>
         <li class="nav-item p-1">
+            <router-link class="nav-link text-white text-decoration-none" to="/budget">
+                <!-- <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg> -->
+                Budget
+            </router-link>
+        </li>
+        <li class="nav-item p-1">
             <router-link class="nav-link text-white text-decoration-none" to="/todo">
                 <!-- <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg> -->
                 Todo

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import TodoView from '../views/TodoView.vue';
 import ObjectiveView from '../views/ObjectiveView.vue';
+import BudgetView from '../views/BudgetView.vue';
 
 Vue.use(VueRouter)
 
@@ -31,6 +32,11 @@ const router = new VueRouter({
       path: '/objectives',
       name: 'Objectives',
       component: ObjectiveView
+    },
+    {
+      path: '/budget',
+      name: 'Budget',
+      component: BudgetView
     }
     // {
     //   path: '/todo',
