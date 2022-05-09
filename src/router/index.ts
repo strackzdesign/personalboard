@@ -13,7 +13,9 @@ const router = new VueRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      redirect: to => {
+        return { path: '/home', query: { q: to.params.searchText } }
+      },
     },
     {
       path: '/home',

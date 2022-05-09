@@ -4,7 +4,7 @@
   export default {
     data() {
       return {
-        project_name: 'Objective Board'
+        project_name: 'Personal Board'
       }
     },
     components: {
