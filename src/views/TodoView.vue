@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div class="TodoView">
+  <div id="TodoView" class="text-center">
     <h1>This is an TodoView</h1>
   </div>
 </template>

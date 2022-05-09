@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <main>
+  <main id="HomeView" class="text-center">
     <TestComponent />
   </main>
 </template>
