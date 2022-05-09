@@ -1,9 +1,15 @@
-<script setup lang="ts">
-import TheWelcome from '@/components/TheWelcome.vue'
+<script lang="ts">
+import TestComponent from '@/components/TestComponent.vue'
+
+export default {
+    components: {
+      TestComponent
+    }
+}
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <TestComponent />
   </main>
 </template>
