@@ -47,7 +47,7 @@ const router = new VueRouter({
     //   component: () => import('../views/TodoView.vue')
     // }
   ],
-  linkActiveClass: 'ob-bg-dark-secondary ob-bg-dark-text'
+  linkActiveClass: 'ob-bg-dark-secondary ob-text-dark'
 })
 
 export default router

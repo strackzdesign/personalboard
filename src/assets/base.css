@@ -95,18 +95,18 @@ body {
   background-color: var(--ob-dark-secondary) !important;
 }
 
-.ob-bg-dark-text {
+.ob-text-dark {
   color: var(--ob-dark) !important;
 }
 
-.ob-bg-dark-soft-text {
+.ob-text-dark-soft {
   color: var(--ob-dark-soft) !important;
 }
 
-.ob-bg-dark-primary-text {
+.ob-text-dark-primary {
   color: var(--ob-dark-primary) !important;
 }
 
-.ob-bg-dark-secondary-text {
+.ob-text-dark-secondary {
   color: var(--ob-dark-secondary) !important;
 }

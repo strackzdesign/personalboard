@@ -4,9 +4,11 @@
   export default {
     data() {
       return {
-        project_name: 'Personal Board'
+        project_name: 'Personal Board',
+        session_status: false
       }
     },
+    methods: { },
     components: {
       NavbarComponent
     },
@@ -15,8 +17,8 @@
 
 <template>
   <div id="app" class="d-flex">
-    <NavbarComponent :project_name='project_name'/>
-    <router-view class="w-100 p-3" />
+    <NavbarComponent :project_name='project_name' :session_status='session_status'/>
+    <router-view class="w-100 p-3" :session_status='session_status'/>
   </div>
 </template>
 
