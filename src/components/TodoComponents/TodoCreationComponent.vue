@@ -1,6 +1,10 @@
 <script lang="ts">
+import { Todo_Impl } from '@/interfaces/Todo_Impl'
+
+/* ---------------------------- CONFIG VARIABLES ---------------------------- */
 const REQUIRED_NAME_FORM_LENGTH_MIN = 10;
 const REQUIRED_NAME_FORM_LENGTH_MAX = 55;
+/* -------------------------------------------------------------------------- */
 
 export default {
     data() {
@@ -11,23 +15,50 @@ export default {
         }
     },
     methods: {
-        createContainerTodo() {
-            console.log(this.creation_name, this.creation_description);
+        /**
+         * Last Method that we excute of all our "verification and validation" steps. We will trigger a method that will insert the data to the localstorage.
+         * 
+         * @returns void
+         */
+        createContainerTodo(): void {
+            if(!this.createFormValidation()) 
+                return;
+            
+            this.insertDataToLocalstorage({
+                name: this.creation_name,
+                description: this.creation_description
+            })
         },
-        createFormValidation() {
+        /**
+         * After all verifications are done, we will validate (set) the property formReady to "true", other systems will remove the disabled class from the button and let us validate the form.
+         * 
+         * @returns boolean | void
+         */
+        createFormValidation(): boolean | void {
             if(!this.creationFormVerification()) {
                 this.formReady = false;
                 return;
             }
             this.formReady = true;
+            return true;
         },
-        creationFormVerification() {
+        /**
+         * We will call every method that verifies the inputs and their content integrity, if every required input is respected, the method will return true.
+         * 
+         * @returns boolean | void
+         */
+        creationFormVerification(): boolean | void {
             if(!this.creationNameVerification()) 
                 return;
             
             return true;
         },
-        creationNameVerification() {
+        /**
+         * Method that will change the color and text of our todo name input, the method will verify the min-length and max-length in order to change the dom itself, if it returns true the input is validated.
+         * 
+         * @returns boolean | void
+         */
+        creationNameVerification(): boolean | void {
             if(this.creation_name.length < REQUIRED_NAME_FORM_LENGTH_MIN || this.creation_name.length > REQUIRED_NAME_FORM_LENGTH_MAX) {
                 document.getElementById('todo-name')!.style.borderColor = '#FF0000';
                 document.getElementById('todo-name-error')!.innerHTML = `( The name must be between ${REQUIRED_NAME_FORM_LENGTH_MIN} and ${REQUIRED_NAME_FORM_LENGTH_MAX} characters )`;
@@ -37,7 +68,23 @@ export default {
             document.getElementById('todo-name')!.style.borderColor = '#00ADB5';
             document.getElementById('todo-name-error')!.innerHTML = '';
             return true;
-        }
+        },
+        /**
+         * Method that will insert the formData to the localstorage, it calls a parent method (Parent: TodoContainersComponent, Method: getDataTodoObjectLiteral()) in order to get the current localstorage data.
+         * 
+         * @returns void
+         */
+        insertDataToLocalstorage(formData: Todo_Impl): void {
+            if(this.$parent.getDataTodoObjectLiteral() === null) 
+                return;
+
+            let oldData = this.$parent.getDataTodoObjectLiteral();
+            oldData.push(formData);
+
+            let newData = JSON.stringify(oldData);
+            localStorage.setItem('todoOfflineData', newData);
+        },
+        
     },
     watch: {
         creation_name: {

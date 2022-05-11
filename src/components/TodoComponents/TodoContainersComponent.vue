@@ -6,6 +6,11 @@ export default {
     components: {
         TodoContainerComponent,
         TodoCreationComponent
+    },
+    methods: {
+        getDataTodoObjectLiteral() {
+            return JSON.parse(localStorage.getItem('todoOfflineData'));
+        }
     }
 }
 </script>
