@@ -79,6 +79,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .ob-bg-dark {
   background-color: var(--ob-dark) !important;
 }

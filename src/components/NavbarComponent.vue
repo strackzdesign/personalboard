@@ -56,9 +56,12 @@ export default {
 
 <style>
 
-
 template, div.ob-sidebar {
   border-right: 1px solid #00ADB5;
+}
+
+.nav-link:hover {
+  transition: all 0.35s ease-out;
 }
 
 </style>

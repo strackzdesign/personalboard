@@ -1,6 +1,11 @@
 <script lang="ts">
+import TodoContainersComponent from '@/components/TodoComponents/TodoContainersComponent.vue'
+
 export default {
   name: 'TodoView',
+  components: {
+    TodoContainersComponent
+  },
   data() {
     return {
       data: 'hello'
@@ -23,7 +28,9 @@ export default {
 
 <template>
   <div id="TodoView" class="text-center">
-    <h1>This is an TodoView {{ session_status }}</h1>
+    <div class="container mt-3 mb-3">
+      <TodoContainersComponent />
+    </div>
   </div>
 </template>
 
