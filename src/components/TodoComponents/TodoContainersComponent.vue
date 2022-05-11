@@ -9,6 +9,7 @@ export default {
     },
     methods: {
         getDataTodoObjectLiteral() {
+            this.$parent.setTodoLocalStorage();
             return JSON.parse(localStorage.getItem('todoOfflineData'));
         }
     }

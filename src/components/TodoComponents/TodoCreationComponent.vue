@@ -1,5 +1,5 @@
 <script lang="ts">
-import { Todo_Impl } from '@/interfaces/Todo_Impl'
+import { TodoContainer_Impl } from '@/interfaces/Todo_Impl'
 
 /* ---------------------------- CONFIG VARIABLES ---------------------------- */
 const REQUIRED_NAME_FORM_LENGTH_MIN = 10;
@@ -26,7 +26,8 @@ export default {
             
             this.insertDataToLocalstorage({
                 name: this.creation_name,
-                description: this.creation_description
+                description: this.creation_description,
+                list: []
             })
         },
         /**
@@ -74,7 +75,7 @@ export default {
          * 
          * @returns void
          */
-        insertDataToLocalstorage(formData: Todo_Impl): void {
+        insertDataToLocalstorage(formData: TodoContainer_Impl): void {
             if(this.$parent.getDataTodoObjectLiteral() === null) 
                 return;
 
