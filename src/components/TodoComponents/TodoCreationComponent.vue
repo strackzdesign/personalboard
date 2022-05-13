@@ -24,11 +24,18 @@ export default {
             if(!this.createFormValidation()) 
                 return;
             
-            this.insertDataToLocalstorage({
+            // this.$parent.insertDataToLocalstorage({
+            //     name: this.creation_name,
+            //     description: this.creation_description,
+            //     list: []
+            // })
+
+            // $('#TodoCreateComponent').modal('dispose');
+            this.$emit('created-todo-container', {
                 name: this.creation_name,
                 description: this.creation_description,
                 list: []
-            })
+            });
         },
         /**
          * After all verifications are done, we will validate (set) the property formReady to "true", other systems will remove the disabled class from the button and let us validate the form.
@@ -70,22 +77,6 @@ export default {
             document.getElementById('todo-name-error')!.innerHTML = '';
             return true;
         },
-        /**
-         * Method that will insert the formData to the localstorage, it calls a parent method (Parent: TodoContainersComponent, Method: getDataTodoObjectLiteral()) in order to get the current localstorage data.
-         * 
-         * @returns void
-         */
-        insertDataToLocalstorage(formData: TodoContainer_Impl): void {
-            if(this.$parent.getDataTodoObjectLiteral() === null) 
-                return;
-
-            let oldData = this.$parent.getDataTodoObjectLiteral();
-            oldData.push(formData);
-
-            let newData = JSON.stringify(oldData);
-            localStorage.setItem('todoOfflineData', newData);
-        },
-        
     },
     watch: {
         creation_name: {

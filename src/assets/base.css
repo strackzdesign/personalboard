@@ -120,3 +120,19 @@ textarea:focus {
 .ob-text-dark-secondary {
   color: var(--ob-dark-secondary) !important;
 }
+
+.ob-border-dark {
+  border: 1px solid var(--ob-dark);
+}
+
+.ob-border-dark-primary {
+  border: 1px solid var(--ob-dark-primary);
+}
+
+.ob-border-dark-secondary {
+  border: 1px solid var(--ob-dark-secondary);
+}
+
+.ob-border-dark-soft {
+  border: 1px solid var(--ob-dark-soft);
+}
